@@ -1,0 +1,39 @@
+{
+  "name": "creator-board",
+  "productName": "Creator Board",
+  "version": "1.2.0",
+  "description": "A free, private planner for YouTube, Instagram and Facebook creators. Runs only on your computer: no account, no internet, no cloud.",
+  "main": "electron-main.js",
+  "author": "The Hot Explainer",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "node server.js",
+    "test": "node tests/safety-test.mjs",
+    "dist": "electron-builder --win nsis --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "45.2.3",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "com.thehotexplainer.creatorboard",
+    "productName": "Creator Board",
+    "directories": { "output": "dist" },
+    "files": ["electron-main.js", "server.js", "home.js", "seed-fresh.js", "public/**", "icon.ico", "FOR-CLAUDE.md", "package.json"],
+    "artifactName": "Creator-Board-Setup.${ext}",
+    "win": { "target": ["nsis"], "icon": "icon.ico" },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Creator Board",
+      "deleteAppDataOnUninstall": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
+    }
+  }
+}
