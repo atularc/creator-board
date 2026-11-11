@@ -127,7 +127,7 @@ function vHome() {
   const dueRows = due.map((i) => {
     const left = i.platforms.filter((p) => !isPosted(i, p)), late = i.plannedDate < t;
     return `<div class="row"><div class="t" data-act="edit" data-id="${i.id}">${dots(i)}${titleOf(i)}<div class="chips"><span class="chip">${KIND[i.kind]}</span>${late ? `<span class="chip warn late">was due ${nice(i.plannedDate)}</span>` : ''}${made(i) ? '' : '<span class="chip warn">Not made yet</span>'}</div></div>
-      ${made(i) ? left.map((p) => `<button class="btn sm ok" data-act="posted" data-id="${i.id}" data-p="${p}">✓ Posted on ${PNAME[p]}</button>`).join('') : `<button class="btn sm" data-act="made" data-id="${i.id}">Mark as made</button>`}</div>`;
+      ${made(i) ? left.map((p) => `<button class="btn sm" data-act="posted" data-id="${i.id}" data-p="${p}" title="Click after you have posted it">Mark as posted on ${PNAME[p]}</button>`).join('') : `<button class="btn sm" data-act="made" data-id="${i.id}">Mark as made</button>`}</div>`;
   }).join('');
   return `<h1>Home</h1><p class="lead">${parse(t).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
   <div class="tiles">${tiles}</div>${S.data.settings.lastDaily !== t ? `<div class="card nudge"><b>Daily update</b><span class="mini">Your numbers have not been updated today. It takes about a minute.</span><span class="sp"></span><button class="btn sm pri" data-act="tab" data-v="daily">Update numbers</button></div>` : ''}
@@ -150,7 +150,7 @@ function card(i, p, st) {
   const pf = perf(i, p) || {};
   const meta = [KIND[i.kind], dur(i.durationSec)].filter(Boolean);
   if (st === 'posted') meta.push('Posted ' + nice(pf.date), fmt(pf.views) + ' views'); else if (i.plannedDate) meta.push('Planned ' + nice(i.plannedDate));
-  const act = st === 'idea' ? `<button class="btn sm" data-act="made" data-id="${i.id}">Mark as made</button>` : st === 'ready' ? `<button class="btn sm ok" data-act="posted" data-id="${i.id}" data-p="${p}">✓ Posted</button>` : (pf.url ? `<a class="mini" href="${esc(pf.url)}" target="_blank" rel="noopener" data-stop>Open link ↗</a>` : '');
+  const act = st === 'idea' ? `<button class="btn sm" data-act="made" data-id="${i.id}">Mark as made</button>` : st === 'ready' ? `<button class="btn sm" data-act="posted" data-id="${i.id}" data-p="${p}" title="Click after you have posted it">Mark as posted</button>` : (pf.url ? `<a class="mini" href="${esc(pf.url)}" target="_blank" rel="noopener" data-stop>Open link ↗</a>` : '');
   return `<div class="kc" draggable="true" data-drag="${i.id}" data-act="edit" data-id="${i.id}"><div class="kt">${titleOf(i, p)}</div><div class="km">${esc(meta.join(' · '))}</div>${act ? `<div class="ka" data-stop>${act}</div>` : ''}</div>`;
 }
 function board(p) {

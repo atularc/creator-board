@@ -1,15 +1,11 @@
-## Creator Board 1.2.0 (first public release)
+## Creator Board 1.2.1
 
 A free, private planner for YouTube, Instagram and Facebook creators. Everything stays on your computer.
 
-**Download `Creator-Board-Setup.exe` below** (Windows). Double-click it, click Next, Install.
+**Download `Creator-Board-Setup.exe` below** (Windows). Double-click it, click Next, Install. Updating from 1.2.0: just install over it; your data is kept.
 
-### Highlights
-- Drag-and-drop board: To make → Ready to post → Posted, for each platform
-- Home screen with what to post today, calendar with Auto-plan, Daily update with growth chart
-- Built-in Help page, undo on every action, light and dark mode
-- Data safety: automatic backups kept forever (one per day), automatic recovery from damaged or missing files, blocked mass-deletes, optional extra backup folder
-- No account, no internet, no tracking
+### What's new in 1.2.1
+- Clearer button on "Ready to post" cards: it now says **Mark as posted** (on the board and the Home screen). The old green "✓ Posted" looked like the video was already posted.
 
 ### Before you run it
 Windows may show **"Windows protected your PC"** because the installer is not signed with a publisher certificate yet. Click **More info**, then **Run anyway**.

@@ -1,7 +1,7 @@
 {
   "name": "creator-board",
   "productName": "Creator Board",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A free, private planner for YouTube, Instagram and Facebook creators. Runs only on your computer: no account, no internet, no cloud.",
   "main": "electron-main.js",
   "author": "The Hot Explainer",
